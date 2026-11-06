@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <rect width="1600" height="1000" fill="#F5F0E8"/>
+  <rect x="0" y="972" width="1600" height="28" fill="#F16610"/>
+  <text x="800.0" y="486.0" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="54" font-weight="bold" fill="#0A1A34">Hero photograph</text>
+  <text x="800.0" y="546.0" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#0A1A34" opacity="0.65">Candid documentary photo of a UNILORIN student interview</text>
+  <text x="800.0" y="604.0" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#D94B00">PLACEHOLDER — replace with a real asset (see README asset table)</text>
+</svg>

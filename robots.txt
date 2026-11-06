@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+# Once your domain is live, point to the sitemap:
+# Sitemap: https://www.yourdomain.com/sitemap.xml

@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.png">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Echoes of Campus — Everyone has a story. Every story needs to be heard.</title>
+  <meta name="description" content="Echoes of Campus is an independent student-focused media initiative at the University of Ilorin. We listen to students, ask questions and bring campus conversations into the open.">
+  <meta property="og:title" content="Echoes of Campus">
+  <meta property="og:description" content="Independent student-focused media at the University of Ilorin. Everyone has a story. Every story needs to be heard.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/shared/placeholder-cta.svg">
+  <meta name="theme-color" content="#0A1A34">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html" aria-label="Echoes of Campus — Home">
+      <img src="assets/logo/logo-mark.png" alt="Echoes of Campus" width="220" height="50">
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="campus-voices.html">Campus Voices</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="nav-cta"><a class="btn btn--primary btn--compact" href="contact.html">Share Your Voice</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16"/>
+      </svg>
+    </button>
+  </div>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" hidden>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="campus-voices.html">Campus Voices</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a class="btn btn--primary" href="contact.html">Share Your Voice</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="container hero__grid">
+      <div>
+        <h1>Everyone has a story. <span class="accent">Every story needs to be heard.</span></h1>
+        <p class="hero__copy">Echoes of Campus listens to students at the University of Ilorin. We ask the questions that matter and bring the opinions, experiences and conversations shaping campus life out into the open.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="campus-voices.html">Explore Campus Voices</a>
+          <a class="btn btn--secondary" href="contact.html">Share Your Voice</a>
+        </div>
+      </div>
+      <div class="hero__media">
+        <!-- Replace with a real interview photograph: assets/images/hero/hero-campus.webp -->
+        <img class="photo-main parallax-slow" src="assets/images/hero/placeholder-hero-main.png" alt="Placeholder for a documentary photograph of a student being interviewed on campus" fetchpriority="high" width="800" height="1000">
+        <img class="photo-float parallax-slow" src="assets/images/hero/placeholder-hero-secondary.png" alt="Placeholder for a behind-the-scenes detail photo" width="480" height="480">
+      </div>
+    </div>
+  </section>
+
+  <section class="brand-strip" aria-label="What we believe">
+    <div class="container">
+      <p>Campus is more than lectures, deadlines and announcements. It is the people, the experiences, the opinions and the conversations that make it what it is. We listen, we ask questions, and we bring those stories into the open.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="featured-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Campus Voices</p>
+          <h2 class="section-title" id="featured-title">Conversations worth hearing.</h2>
+        </div>
+        <a class="link-more" href="campus-voices.html">Explore all Campus Voices <span aria-hidden="true">→</span></a>
+      </div>
+      <div id="home-voices" hidden></div>
+      <div class="empty-state" id="home-voices-empty">
+        <h3>The first conversations are on the way.</h3>
+        <p>The team is out on campus recording interviews and gathering stories. Or be part of the first wave by sharing what you think we should be talking about.</p>
+        <a class="btn btn--primary" href="contact.html">Suggest a topic</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0" aria-labelledby="coverage-title">
+    <div class="container">
+      <p class="eyebrow">What we cover</p>
+      <h2 class="section-title" id="coverage-title">The formats we are building.</h2>
+      <p class="section-intro">These are the editorial directions Echoes of Campus is built around. As real stories land, they will live under these categories.</p>
+      <ul class="coverage-list">
+        <li class="coverage-item"><h3>Street Interviews</h3><p>Direct conversations with students, in their own words and on their own terms.</p></li>
+        <li class="coverage-item"><h3>Campus Conversations</h3><p>Opinions and discussions around the topics students are actually talking about.</p></li>
+        <li class="coverage-item"><h3>Campus Pulse</h3><p>Developments, happenings and issues that matter within the campus community.</p></li>
+        <li class="coverage-item"><h3>Personal Stories</h3><p>Lived experiences and perspectives, shared with care and handled thoughtfully.</p></li>
+        <li class="coverage-item"><h3>Events &amp; Campaigns</h3><p>Selected campus events and initiatives, covered by the team when they are worth your attention.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0" aria-labelledby="about-preview-title">
+    <div class="container two-col">
+      <div>
+        <p class="eyebrow">Who we are</p>
+        <h2 class="section-title" id="about-preview-title">An independent voice, listening to campus.</h2>
+        <p>Echoes of Campus is a student-focused media initiative, independent of the university, built around one simple idea: students already have the stories. Our job is to make sure someone is listening, and that those stories travel further than a corridor conversation.</p>
+        <a class="btn btn--secondary" href="about.html">More about us</a>
+      </div>
+      <img src="assets/images/about/placeholder-about-hero.svg" alt="Placeholder for a photograph of the Echoes of Campus team at work" loading="lazy" width="800" height="500">
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0" aria-labelledby="share-title">
+    <div class="container">
+      <div class="cta-band">
+        <h2 id="share-title">There&rsquo;s room for your story here.</h2>
+        <p>Suggest a topic, share an experience, raise a concern, request an interview or simply ask a question. The editorial team reads everything that comes in. </p>
+        <a class="btn btn--primary" href="contact.html">Share Your Voice</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0" aria-labelledby="join-title">
+    <div class="container">
+      <div class="join-teaser">
+        <div>
+          <p class="eyebrow">Join the Team</p>
+          <h2 id="join-title">Want to help build this?</h2>
+          <p>We are always glad to hear from students who want to contribute, whether that is interviewing, editing, design, photography or anything else that keeps a media operation moving. Volunteering here means helping shape something from the ground up.</p>
+          <a class="btn btn--secondary" href="about.html#join-the-team">Join the Team</a>
+        </div>
+        <img src="assets/images/about/placeholder-about-detail.svg" alt="Placeholder for a behind-the-scenes production photo" loading="lazy" width="600" height="600">
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/logo/logo-primary.png" alt="Echoes of Campus" width="220" height="50">
+        <p class="footer-message">Everyone has a story. Every story needs to be heard.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="campus-voices.html">Campus Voices</a></li>
+          <li><a href="contact.html">Contact / Share Your Voice</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Follow along</h2>
+        <ul id="footer-social"></ul>
+      </div>
+    </div>
+    <p class="footer-note">Echoes of Campus is an independent, student-focused media initiative focused on the University of Ilorin. It is not an official University of Ilorin channel, and the university does not operate or endorse it.</p>
+    <div class="footer-bottom">
+      <span>&copy; <span class="js-year">2026</span> Echoes of Campus. All rights reserved.</span>
+      <span>Made with students, for students.</span>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

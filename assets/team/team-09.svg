@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="840" viewBox="0 0 600 840" role="img" aria-label="ID card placeholder">
+  <!-- PLACEHOLDER: replace with real member ID-card artwork, team-01.png ... team-16.png.
+       Export a PUBLIC-SAFE version without private QR/barcode/ID data. -->
+  <rect width="600" height="840" rx="24" fill="#F5F0E8"/>
+  <rect width="600" height="840" rx="24" fill="none" stroke="#0A1A34" stroke-width="6"/>
+  <path d="M0 0h120v24a24 24 0 0 1-24 24H0z" fill="#F16610"/>
+  <path d="M600 840H480v-24a24 24 0 0 1 24-24h96z" fill="#F16610"/>
+  <rect x="120" y="170" width="360" height="300" rx="12" fill="#F2C6A5"/>
+  <text x="300" y="335" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#0A1A34" opacity="0.7">Portrait</text>
+  <text x="300" y="560" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="bold" fill="#0A1A34">Member Name</text>
+  <text x="300" y="606" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#0A1A34" opacity="0.7">Role / Department</text>
+  <text x="300" y="700" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#D94B00">PLACEHOLDER — replace with team-09.png</text>
+</svg>

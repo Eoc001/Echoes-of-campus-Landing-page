@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Contact / Share Your Voice — Echoes of Campus</title>
+  <meta name="description" content="Suggest a topic, share a story, raise a concern, request an interview or ask a question. The Echoes of Campus team is listening.">
+  <meta name="theme-color" content="#0A1A34">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html" aria-label="Echoes of Campus — Home">
+      <img src="assets/logo/logo-primary.svg" alt="Echoes of Campus" width="220" height="50">
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="campus-voices.html">Campus Voices</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+        <li class="nav-cta"><a class="btn btn--primary btn--compact" href="contact.html">Share Your Voice</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16"/>
+      </svg>
+    </button>
+  </div>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" hidden>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="campus-voices.html">Campus Voices</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a class="btn btn--primary" href="contact.html">Share Your Voice</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="page-hero container" style="padding-top:var(--sp-16)">
+    <p class="eyebrow">Contact / Share Your Voice</p>
+    <h1>Your voice belongs here.</h1>
+    <p>Have a topic we should be talking about, a story worth hearing or a question for the campus? Tell us. The Echoes of Campus team is listening.</p>
+  </section>
+
+  <section class="section" style="padding-top:0" aria-labelledby="form-title">
+    <div class="container two-col" style="align-items:start">
+      <div>
+        <h2 class="section-title" id="form-title" style="font-size:clamp(24px,3vw,36px)">What would you like to share?</h2>
+        <p>Pick the closest category and write as much or as little as you like. You can stay unnamed if you prefer. When a submission is anonymous, your name and email are not required and are not collected as hidden mandatory fields.</p>
+        <div class="privacy-note">
+          <strong>The honest privacy bit.</strong> Choosing &ldquo;keep me anonymous&rdquo; means we will not identify you publicly. It does not make a submission technically untraceable, because the editorial team and our form provider can still see what was sent. We handle submissions thoughtfully and review them before anything is used editorially.
+        </div>
+        <p style="margin-top:var(--sp-4);font-size:15px;color:var(--ink-70)">
+          Submissions are reviewed by the Echoes of Campus team and are never published automatically. We may follow up if you leave contact details. Sharing something does not guarantee it will be covered, investigated, published or answered.
+          <a href="privacy.html" hidden>Privacy notice</a>
+          <span style="display:block;margin-top:8px">A full privacy notice will live here once it is written.</span>
+        </p>
+      </div>
+      <div class="form-panel">
+        <form id="contact-form" novalidate>
+          <input type="hidden" name="submission_type" value="share_your_voice">
+          <div class="hp-field" aria-hidden="true">
+            <label>Do not fill this field <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+          </div>
+          <div class="field">
+            <label for="cf-type">I want to&hellip; <span aria-hidden="true">*</span></label>
+            <select id="cf-type" name="submission_category" required>
+              <option value="">Choose one&hellip;</option>
+              <option>Suggest a Topic</option>
+              <option>Share a Story</option>
+              <option>Raise a Concern</option>
+              <option>Request an Interview</option>
+              <option>Ask a Question</option>
+              <option>General Enquiry</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cf-name">Name <span style="font-weight:400;color:var(--ink-70)">(optional)</span></label>
+            <input type="text" id="cf-name" name="name" autocomplete="name">
+            <p class="helper">Only needed if you are happy to be identified to the team.</p>
+          </div>
+          <div class="field">
+            <label for="cf-email">Email <span style="font-weight:400;color:var(--ink-70)">(optional)</span></label>
+            <input type="email" id="cf-email" name="email" autocomplete="email">
+            <p class="helper">Required only if you would like a reply.</p>
+          </div>
+          <div class="field">
+            <label for="cf-message">Your message <span aria-hidden="true">*</span></label>
+            <textarea id="cf-message" name="message" required aria-describedby="cf-message-help"></textarea>
+            <p class="helper" id="cf-message-help">What happened, what is on your mind, or what should we be asking students about?</p>
+          </div>
+          <fieldset class="field" style="border:0;padding:0;margin:0 0 var(--sp-6)">
+            <legend style="font-size:14px;font-weight:600;margin-bottom:var(--sp-2)">Privacy preference</legend>
+            <label class="choice">
+              <input type="checkbox" id="cf-anon" name="anonymous_public" value="yes">
+              <span>Keep me anonymous if this is ever used publicly.</span>
+            </label>
+            <label class="choice">
+              <input type="checkbox" id="cf-reply" name="wants_reply" value="yes">
+              <span>I would like the team to be able to reply to me.</span>
+            </label>
+          </fieldset>
+          <label class="choice">
+            <input type="checkbox" name="consent" required>
+            <span>I understand that my submission is reviewed by the Echoes of Campus team, is not published automatically, and that a privacy notice will be published on this site in due course. <span aria-hidden="true">*</span></span>
+          </label>
+          <div style="margin-top:var(--sp-6)">
+            <button class="btn btn--primary" type="submit">Share Your Voice</button>
+          </div>
+          <p class="form-notice" role="status" hidden></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/logo/logo-primary.svg" alt="Echoes of Campus" width="220" height="50">
+        <p class="footer-message">Everyone has a story. Every story needs to be heard.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="campus-voices.html">Campus Voices</a></li>
+          <li><a href="contact.html">Contact / Share Your Voice</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Follow along</h2>
+        <ul id="footer-social"></ul>
+      </div>
+    </div>
+    <p class="footer-note">Echoes of Campus is an independent, student-focused media initiative focused on the University of Ilorin. It is not an official University of Ilorin channel, and the university does not operate or endorse it.</p>
+    <div class="footer-bottom">
+      <span>&copy; <span class="js-year">2026</span> Echoes of Campus. All rights reserved.</span>
+      <span>Made with students, for students.</span>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

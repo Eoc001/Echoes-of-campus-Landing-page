@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Campus Voices — Echoes of Campus</title>
+  <meta name="description" content="Student interviews, opinions, conversations and personal stories from the University of Ilorin, gathered by Echoes of Campus.">
+  <meta name="theme-color" content="#0A1A34">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html" aria-label="Echoes of Campus — Home">
+      <img src="assets/logo/logo-primary.svg" alt="Echoes of Campus" width="220" height="50">
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="campus-voices.html" aria-current="page">Campus Voices</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="nav-cta"><a class="btn btn--primary btn--compact" href="contact.html">Share Your Voice</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16"/>
+      </svg>
+    </button>
+  </div>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" hidden>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="campus-voices.html">Campus Voices</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a class="btn btn--primary" href="contact.html">Share Your Voice</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="page-hero container" style="padding-top:var(--sp-16)">
+    <p class="eyebrow">Campus Voices</p>
+    <h1>Campus, in their own words.</h1>
+    <p>Student interviews, opinions, conversations, campus developments, personal experiences and selected event coverage, gathered by the Echoes of Campus team. Filter by what you are in the mood for.</p>
+  </section>
+
+  <section class="section" style="padding-top:0" aria-label="Editorial content">
+    <div class="container">
+      <div id="voices-featured" class="voices-featured" hidden></div>
+
+      <div class="filter-bar" role="tablist" aria-label="Filter stories by category">
+        <button class="filter-btn is-active" type="button" role="tab" aria-selected="true" data-filter="All">All</button>
+        <button class="filter-btn" type="button" role="tab" aria-selected="false" data-filter="Street Interviews">Street Interviews</button>
+        <button class="filter-btn" type="button" role="tab" aria-selected="false" data-filter="Campus Conversations">Campus Conversations</button>
+        <button class="filter-btn" type="button" role="tab" aria-selected="false" data-filter="Campus Pulse">Campus Pulse</button>
+        <button class="filter-btn" type="button" role="tab" aria-selected="false" data-filter="Personal Stories">Personal Stories</button>
+        <button class="filter-btn" type="button" role="tab" aria-selected="false" data-filter="Events &amp; Campaigns">Events &amp; Campaigns</button>
+      </div>
+
+      <div class="voices-grid" id="voices-grid"></div>
+
+      <div class="empty-state" id="voices-empty" hidden>
+        <h3 id="voices-empty-title">Nothing here yet, on purpose.</h3>
+        <p>This category is waiting for its first real story. We do not manufacture archive entries to fill space. If you think something belongs here, tell us about it.</p>
+        <a class="btn btn--primary" href="contact.html">Share a suggestion</a>
+      </div>
+      <p id="voices-count" hidden style="margin-top:var(--sp-6);color:var(--ink-70);font-size:15px">
+        X and Instagram are where short previews will link out once those channels go live. Until the real URLs are configured, you will not find invented handles here.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/logo/logo-primary.svg" alt="Echoes of Campus" width="220" height="50">
+        <p class="footer-message">Everyone has a story. Every story needs to be heard.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="campus-voices.html">Campus Voices</a></li>
+          <li><a href="contact.html">Contact / Share Your Voice</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Follow along</h2>
+        <ul id="footer-social"></ul>
+      </div>
+    </div>
+    <p class="footer-note">Echoes of Campus is an independent, student-focused media initiative focused on the University of Ilorin. It is not an official University of Ilorin channel, and the university does not operate or endorse it.</p>
+    <div class="footer-bottom">
+      <span>&copy; <span class="js-year">2026</span> Echoes of Campus. All rights reserved.</span>
+      <span>Made with students, for students.</span>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

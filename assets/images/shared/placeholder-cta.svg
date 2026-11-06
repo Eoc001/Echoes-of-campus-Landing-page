@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="700" viewBox="0 0 1600 700">
+  <rect width="1600" height="700" fill="#F5F0E8"/>
+  <rect x="0" y="672" width="1600" height="28" fill="#F16610"/>
+  <text x="800.0" y="336.0" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="54" font-weight="bold" fill="#0A1A34">Campus texture</text>
+  <text x="800.0" y="396.0" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#0A1A34" opacity="0.65">Optional warm campus image for CTA band</text>
+  <text x="800.0" y="454.0" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#D94B00">PLACEHOLDER — replace with a real asset (see README asset table)</text>
+</svg>

@@ -37,8 +37,8 @@ const CONFIG = {
   },
 
   social: {
-    x: null,        // e.g. 'https://x.com/yourhandle'
-    instagram: null, // e.g. 'https://instagram.com/yourhandle'
+    x: 'https://x.com/Echoesofcampus',
+    instagram: 'https://instagram.com/echoesofcampus01',
     // Future channels — intentionally inactive for now:
     youtube: null,
     spotify: null,
@@ -282,7 +282,7 @@ const STORIES = [];
   function initFooter() {
     $$('.js-year').forEach((el) => { el.textContent = new Date().getFullYear() })
     const wrap = $('#footer-social')
-    if (!wrap || !window.CONFIG) return
+    if (!wrap || typeof CONFIG === 'undefined') return
     const s = CONFIG.social
     const items = []
     if (s.x) items.push({ label: 'X (Twitter)', url: s.x })
@@ -510,7 +510,7 @@ const STORIES = [];
   }
 
   function initForms() {
-    if (!window.CONFIG) return
+    if (typeof CONFIG === 'undefined') return
     initForm('contact-form', CONFIG.formspree.contactEndpoint,
       '<strong>Thank you.</strong> Your message is in. The Echoes of Campus team reviews every submission that comes in, and we may follow up if you left contact details. Sharing something does not guarantee coverage, but nothing gets heard if it never reaches us.')
     initForm('volunteer-form', CONFIG.formspree.volunteerEndpoint,
@@ -576,6 +576,40 @@ const STORIES = [];
       })
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' })
     targets.forEach((el) => io.observe(el))
+  }
+
+  /* ── Light / dark theme ────────────────────────────────────── */
+  function initTheme() {
+    const root = document.documentElement
+    const btn = $('#theme-toggle')
+    const meta = document.querySelector('meta[name="theme-color"]')
+    const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    const apply = (theme, persist) => {
+      root.setAttribute('data-theme', theme)
+      if (btn) {
+        btn.setAttribute('aria-label',
+          theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme')
+      }
+      if (meta) meta.setAttribute('content', theme === 'light' ? '#F7F3EC' : '#0A1A34')
+      if (persist) { try { localStorage.setItem('eoc-theme', theme) } catch (e) {} }
+    }
+
+    /* the inline head script already set data-theme (saved > system > dark) */
+    let current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark'
+    apply(current, false)
+
+    if (btn) {
+      btn.addEventListener('click', () => {
+        const next = current === 'light' ? 'dark' : 'light'
+        if (!calm) {
+          root.classList.add('theme-transitioning')
+          window.setTimeout(() => root.classList.remove('theme-transitioning'), 500)
+        }
+        apply(next, true)
+        current = next
+      })
+    }
   }
 
   /* ── Magnetic micro-interactions ───────────────────────────── */
@@ -766,6 +800,7 @@ const STORIES = [];
 
   document.addEventListener('DOMContentLoaded', () => {
     initNav()
+    initTheme()
     initFooter()
     initTeam()
     initVoices()

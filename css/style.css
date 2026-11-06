@@ -4,14 +4,17 @@
 
 /* ── 1. Tokens ─────────────────────────────────────────────── */
 :root {
-  --ink: #0A1A34;          /* page background */
+  color-scheme: dark;
+  --bg: #0A1A34;           /* page background (flips in light theme) */
+  --ink: #0A1A34;          /* brand dark — always dark (dark text on orange) */
   --ink-deep: #071228;     /* footer / deepest surfaces */
   --surface: #102446;      /* raised cards & panels */
   --surface-2: #142B54;    /* hover / input surfaces */
   --orange: #F16610;
   --orange-deep: #D94B00;
   --orange-bright: #FF8C42;/* small text accents on dark (AA-safe) */
-  --cream: #F5F0E8;
+  --cream: #F5F0E8;        /* main text colour (flips to ink in light theme) */
+  --on-ink: #F5F0E8;       /* text on brand-ink surfaces — never flips */
   --peach: #F2C6A5;
   --text-dim: rgba(245, 240, 232, 0.74);
   --text-faint: rgba(245, 240, 232, 0.55);
@@ -42,7 +45,7 @@
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  background: var(--ink);
+  background: var(--bg);
   color: var(--cream);
   font-family: var(--font-body);
   font-size: 17px;
@@ -213,9 +216,30 @@ a:hover { color: var(--orange-bright); }
   cursor: pointer; align-items: center; justify-content: center;
 }
 .nav-toggle svg { width: 24px; height: 24px; stroke: var(--cream); }
+/* header actions: theme toggle + hamburger */
+.header-actions { display: flex; align-items: center; gap: var(--sp-3); }
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 46px; height: 46px; flex: none; padding: 0;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 50%; cursor: pointer; color: var(--cream);
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease,
+              transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.theme-toggle:hover {
+  border-color: var(--orange); color: var(--orange-bright);
+  transform: rotate(20deg) scale(1.06);
+}
+.theme-toggle:active { transform: scale(0.94); }
+.theme-toggle svg { width: 20px; height: 20px; stroke: currentColor; }
+/* dark (default): show sun → click for light · light: show moon → click for dark */
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+[data-theme="light"] .theme-toggle .icon-sun { display: block; }
+[data-theme="light"] .theme-toggle .icon-moon { display: none; }
 .mobile-menu {
   position: absolute; top: 72px; left: 0; right: 0;
-  background: var(--ink); border-bottom: 2px solid var(--orange);
+  background: var(--bg); border-bottom: 2px solid var(--orange);
   padding: var(--sp-4) var(--pad-mobile) var(--sp-6);
 }
 .mobile-menu ul { list-style: none; margin: 0 0 var(--sp-4); padding: 0; }
@@ -375,7 +399,7 @@ a:hover { color: var(--orange-bright); }
 .hero__media .photo-main { aspect-ratio: 4 / 5; object-fit: cover; width: 100%; }
 .hero__media .photo-float {
   position: absolute; right: -24px; bottom: -32px;
-  width: 42%; border: 6px solid var(--ink);
+  width: 42%; border: 6px solid var(--bg);
   border-radius: var(--radius-m); box-shadow: 0 16px 44px rgba(0, 0, 0, 0.45);
 }
 .brand-strip {
@@ -641,4 +665,78 @@ a:hover { color: var(--orange-bright); }
   .eyebrow::after { transform: scaleX(1); }
   .scroll-top { display: none; }
   .hero__glow { display: none; }
+}
+
+/* ── 9. Light theme ─────────────────────────────────────────
+   --ink stays the brand's dark navy (it is used as DARK TEXT on
+   orange surfaces); the page background flips via --bg and the
+   text/surface/line tokens flip with it. Orange stays as usual.
+   Activated by <html data-theme="light"> (set before paint by the
+   inline head script, toggled by #theme-toggle).               */
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #F7F3EC;           /* warm paper page background */
+  --ink-deep: #ECE5D9;     /* footer */
+  --surface: #FFFFFF;      /* cards & panels */
+  --surface-2: #F4EFE5;    /* hover / input surfaces */
+  --cream: #0A1A34;        /* text flips to ink */
+  --peach: #9C4A00;        /* footer headings — AA on light */
+  --orange-bright: #C2410C;/* accent text — AA on light */
+  --text-dim: rgba(10, 26, 52, 0.76);
+  --text-faint: rgba(10, 26, 52, 0.56);
+  --line: rgba(10, 26, 52, 0.13);
+  --line-strong: rgba(10, 26, 52, 0.26);
+}
+
+/* surfaces that hardcoded dark glass */
+[data-theme="light"] .site-header {
+  background: rgba(247, 243, 236, 0.78);
+  box-shadow: 0 1px 0 rgba(10, 26, 52, 0.05), 0 12px 40px rgba(10, 26, 52, 0.08);
+}
+[data-theme="light"] .site-header.is-scrolled {
+  background: rgba(247, 243, 236, 0.94);
+  box-shadow: 0 10px 36px rgba(10, 26, 52, 0.12);
+}
+[data-theme="light"] .team-modal { background: rgba(10, 26, 52, 0.42); }
+[data-theme="light"] .team-modal__dialog {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(10, 26, 52, 0.14);
+  box-shadow: 0 30px 80px rgba(10, 26, 52, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+[data-theme="light"] .form-panel {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(10, 26, 52, 0.14);
+  box-shadow: 0 20px 60px rgba(10, 26, 52, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+[data-theme="light"] .scroll-top { background: rgba(255, 255, 255, 0.88); }
+[data-theme="light"] .scroll-progress { background: rgba(10, 26, 52, 0.08); }
+[data-theme="light"] .form-notice--config { background: rgba(10, 26, 52, 0.05); }
+[data-theme="light"] .field select { color-scheme: light; }
+
+/* hero: drop the navy radial, keep warm orange glows */
+[data-theme="light"] .hero {
+  background: radial-gradient(circle at top right, rgba(241, 102, 16, 0.12), transparent 50%),
+              radial-gradient(circle at bottom left, rgba(241, 102, 16, 0.07), transparent 50%);
+}
+[data-theme="light"] .photo-float {
+  border-color: var(--bg);
+  box-shadow: 0 16px 44px rgba(10, 26, 52, 0.28);
+}
+
+/* CTA button: stays brand-ink (dark) on the orange band → needs light text;
+   on hover it becomes the light surface, so the text flips back to ink */
+[data-theme="light"] .cta-band .btn--primary { color: var(--on-ink); }
+[data-theme="light"] .cta-band .btn--primary:hover {
+  background: var(--surface-2); border-color: var(--surface-2); color: var(--ink);
+}
+
+/* smooth theme cross-fade — added briefly by JS on toggle only
+   (so prefers-reduced-motion and in-flight reveals are untouched) */
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition: background-color 0.4s ease, color 0.4s ease,
+              border-color 0.4s ease, box-shadow 0.4s ease,
+              stroke 0.4s ease !important;
 }

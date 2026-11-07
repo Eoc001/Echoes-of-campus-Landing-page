@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-# Once your domain is live, point to the sitemap:
-# Sitemap: https://www.yourdomain.com/sitemap.xml
+
+Sitemap: https://eoc001.github.io/Echoes-of-campus-Landing-page/sitemap.xml

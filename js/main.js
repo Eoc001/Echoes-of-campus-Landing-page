@@ -32,7 +32,7 @@ const CONFIG = {
   brandMessage: 'Everyone has a story. Every story needs to be heard.',
 
   formspree: {
-    contactEndpoint: 'https://formspree.io/f/YOUR_CONTACT_FORM_ID',
+    contactEndpoint: 'https://formspree.io/f/xwlolggo',
     volunteerEndpoint: 'https://formspree.io/f/xyewerva',
   },
 

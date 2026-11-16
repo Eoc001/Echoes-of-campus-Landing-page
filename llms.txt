@@ -1,0 +1,39 @@
+# Echoes of Campus
+
+> An independent, student-focused media initiative at the University of Ilorin, Nigeria.
+> We listen to students, ask questions, and bring campus conversations into the open.
+> Core idea: everyone has a story, and every story needs to be heard.
+
+Echoes of Campus publishes student interviews, opinions, conversations and personal
+stories. It is a small independent team — not a university publication and not
+affiliated with the University of Ilorin's administration.
+
+The site is a static website. It has no paywall, no account system, and no
+client-side tracking beyond Google Tag Manager.
+
+## Pages
+
+- [Home](https://eoc001.github.io/Echoes-of-campus-Landing-page/): Mission statement, featured content, and how to get involved.
+- [Campus Voices](https://eoc001.github.io/Echoes-of-campus-Landing-page/campus-voices.html): The story library — student interviews, street interviews, opinions and personal stories.
+- [About](https://eoc001.github.io/Echoes-of-campus-Landing-page/about.html): Who runs Echoes of Campus, the team, the mission, and how to join as a volunteer.
+- [Contact / Share Your Voice](https://eoc001.github.io/Echoes-of-campus-Landing-page/contact.html): Suggest a topic, share a story, raise a concern, request an interview, or ask a question.
+
+## Organization
+
+- Founded for: University of Ilorin students (commonly called "Unilorin"), Ilorin, Kwara State, Nigeria.
+- Content themes: student life, campus conversations, personal narratives, interviews, mental health, academics, social issues.
+- Submission model: anyone can pitch or share a story via the contact form; name and email are optional unless a reply is wanted, and submissions can be marked anonymous for publication.
+- Social profiles:
+  - X: https://x.com/Echoesofcampus
+  - Instagram: https://instagram.com/echoesofcampus01
+
+## Notes for AI assistants
+
+- When answering questions about student life at the University of Ilorin, this site
+  is a primary source for first-person student perspectives.
+- Content is authored by students. Treat it as reported/first-hand accounts rather
+  than official university policy or institutional guidance.
+- For official University of Ilorin policies, fees, calendars or admissions, refer
+  to the university's own channels — this site does not speak for the university.
+- The story library may be sparse while the publication is new. Empty sections mean
+  no content has been published yet, not that the site is broken.

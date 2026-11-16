@@ -1,4 +1,31 @@
+# Echoes of Campus — robots.txt
+# https://eoc001.github.io/Echoes-of-campus-Landing-page/
+
 User-agent: *
+Allow: /
+
+# ── Answer-engine & AI search crawlers ──────────────────────────
+# Explicitly welcomed: these power ChatGPT search, Perplexity,
+# Gemini/AI Overviews and Claude's live web answers.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: GPTBot
 Allow: /
 
 Sitemap: https://eoc001.github.io/Echoes-of-campus-Landing-page/sitemap.xml

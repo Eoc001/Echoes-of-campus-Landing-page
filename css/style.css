@@ -185,7 +185,6 @@ a:hover { color: var(--orange-bright); }
 }
 .form-notice--success { background: rgba(241, 102, 16, 0.14); border: 1px solid var(--orange); }
 .form-notice--error { background: rgba(217, 75, 0, 0.16); border: 1px solid var(--orange-deep); }
-.form-notice--config { background: rgba(245, 240, 232, 0.06); border: 1px dashed var(--line-strong); }
 .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
 /* ── 4. Header / footer ──────────────────────────────────── */
@@ -710,7 +709,6 @@ a:hover { color: var(--orange-bright); }
 }
 [data-theme="light"] .scroll-top { background: rgba(255, 255, 255, 0.88); }
 [data-theme="light"] .scroll-progress { background: rgba(10, 26, 52, 0.08); }
-[data-theme="light"] .form-notice--config { background: rgba(10, 26, 52, 0.05); }
 [data-theme="light"] .field select { color-scheme: light; }
 
 /* hero: drop the navy radial, keep warm orange glows */

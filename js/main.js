@@ -460,22 +460,9 @@ const STORIES = [];
     if (!form) return
     const notice = form.querySelector('.form-notice')
     const submitBtn = form.querySelector('button[type="submit"]')
-    const configured = window.formIsConfigured(endpoint)
-
-    if (!configured) {
-      notice.className = 'form-notice form-notice--config'
-      notice.textContent = 'Form setup needed: paste your Formspree endpoint into Part 1 of this file (CONFIG) to activate submissions. Nothing is sent anywhere until then.'
-      notice.hidden = false
-    }
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault()
-      if (!configured) {
-        notice.className = 'form-notice form-notice--config'
-        notice.textContent = 'This form is not connected yet. Add your Formspree endpoint in Part 1 of this file (CONFIG), then try again.'
-        notice.hidden = false
-        return
-      }
       if (!form.reportValidity()) return
 
       const data = new FormData(form)

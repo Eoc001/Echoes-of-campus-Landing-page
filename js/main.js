@@ -33,7 +33,7 @@ const CONFIG = {
 
   formspree: {
     contactEndpoint: 'https://formspree.io/f/YOUR_CONTACT_FORM_ID',
-    volunteerEndpoint: 'https://formspree.io/f/YOUR_VOLUNTEER_FORM_ID',
+    volunteerEndpoint: 'https://formspree.io/f/xyewerva',
   },
 
   social: {

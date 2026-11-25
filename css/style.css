@@ -209,6 +209,15 @@ a:hover { color: var(--orange-bright); }
 .main-nav a:hover { color: var(--orange-bright); border-bottom-color: var(--orange); }
 .main-nav a[aria-current="page"] { color: var(--orange-bright); border-bottom-color: var(--orange); }
 .nav-cta { margin-left: var(--sp-2); }
+/* `.main-nav a` (0-1-1) out-specifies `.btn`/`.btn--compact` (0-1-0) and
+   `.main-nav a:hover` (0-2-1) out-specifies `.btn--primary:hover` (0-2-0),
+   which squashed the nav CTA and stole its hover colour. Scope overrides
+   so the MeetMe button renders as a proper orange button. */
+.main-nav .nav-cta .btn { padding: 0 18px; border-bottom-width: 1px; }
+.main-nav .nav-cta .btn:hover,
+.main-nav .nav-cta .btn:focus-visible {
+  color: var(--ink); border-bottom-color: transparent;
+}
 .nav-toggle {
   display: none; width: 48px; height: 48px;
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-s);
@@ -433,20 +442,102 @@ a:hover { color: var(--orange-bright); }
 .coverage-item h3 { font-size: 20px; }
 .coverage-item p { font-size: 15px; color: var(--text-dim); margin: 0; }
 
-.cta-band {
-  background: var(--orange); color: var(--ink);
-  border-radius: var(--radius-m); padding: var(--sp-16) var(--sp-12);
-  position: relative; overflow: hidden;
+/* ── MeetMe promotional band (split layout) ────────────────── */
+.meetme-band {
+  position: relative;
+  display: grid; grid-template-columns: 1.05fr 1fr;
+  gap: var(--sp-12); align-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(241, 102, 16, 0.16), transparent 52%),
+    var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  padding: var(--sp-16) var(--sp-12);
 }
-.cta-band::after {
-  content: ''; position: absolute; right: -70px; top: -70px;
-  width: 240px; height: 240px; border-radius: 50%;
-  border: 34px solid rgba(10, 26, 52, 0.12);
+/* orange accent rail down the left edge, echoing the old CTA band */
+.meetme-band::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
+  background: linear-gradient(180deg, var(--orange-deep), var(--orange), var(--orange-bright));
 }
-.cta-band h2 { font-size: clamp(26px, 3.4vw, 44px); color: var(--ink); }
-.cta-band p { color: rgba(10, 26, 52, 0.82); max-width: 60ch; }
-.cta-band .btn--primary { background: var(--ink); color: var(--cream); border-color: var(--ink); margin-top: var(--sp-2); position: relative; z-index: 1; }
-.cta-band .btn--primary:hover { background: var(--surface-2); border-color: var(--surface-2); transform: translateY(-2px); }
+.meetme-band__copy { position: relative; z-index: 1; }
+.meetme-band h2 { font-size: clamp(28px, 3.6vw, 46px); max-width: 15ch; }
+.meetme-band__text { font-size: 17px; line-height: 1.62; color: var(--text-dim); max-width: 46ch; }
+.meetme-band__actions {
+  display: flex; align-items: center; gap: var(--sp-4);
+  flex-wrap: wrap; margin-top: var(--sp-6);
+}
+.meetme-band__note { font-size: 13px; color: var(--text-faint); }
+
+/* Visual preview of the MeetMe interface — pure CSS, no image assets.
+   Colours are MeetMe's own tokens (near-black, ivory, gold) so the panel
+   reads as a genuine screenshot while the surrounding band stays EOC. */
+.meetme-band__preview { position: relative; z-index: 1; }
+.mm-shot {
+  background: #0C0C0E;
+  border: 1px solid rgba(240, 230, 210, 0.10);
+  border-radius: 18px;
+  padding: 16px 16px 12px;
+  box-shadow: 0 30px 70px rgba(2, 6, 16, 0.55),
+              0 0 0 1px rgba(212, 168, 87, 0.16);   /* subtle MeetMe-gold ring */
+  transform: rotate(-0.6deg);
+}
+.mm-shot__top { display: flex; align-items: center; gap: 9px; margin-bottom: 13px; }
+.mm-logo {
+  width: 20px; height: 20px; flex: none;
+  display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 2px;
+}
+.mm-logo i { display: block; transform: skewX(-14deg); border-radius: 1px; }
+.mm-logo i:nth-child(1) { background: #E8C04A; }
+.mm-logo i:nth-child(2) { background: #D9A63C; }
+.mm-logo i:nth-child(3) { background: #F0CF6A; }
+.mm-logo i:nth-child(4) { background: #C9962E; }
+.mm-word {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 15px; font-weight: 600; color: #F0E6D2; letter-spacing: 0.01em;
+}
+.mm-pill {
+  margin-left: auto; width: 24px; height: 24px; border-radius: 50%;
+  background: #141417; border: 1px solid rgba(240, 230, 210, 0.10);
+}
+.mm-switch {
+  display: flex; gap: 4px; background: #141417; border-radius: 12px;
+  padding: 4px; margin-bottom: 12px;
+}
+.mm-switch__opt {
+  flex: 1; text-align: center; padding: 8px 0; border-radius: 9px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  color: #8A8578;
+}
+.mm-switch__opt.is-on { background: rgba(212, 168, 87, 0.14); color: #E8C878; }
+.mm-card {
+  background: #17171B; border: 1px solid rgba(240, 230, 210, 0.07);
+  border-radius: 14px; padding: 13px 14px 11px; margin-bottom: 10px;
+}
+.mm-card--quiet { opacity: 0.6; }
+.mm-card__head { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 7px; }
+.mm-card__who { font-size: 11px; letter-spacing: 0.06em; color: #8A8578; font-weight: 500; }
+.mm-card__when { font-size: 10px; color: #5C584F; }
+.mm-card__body { font-size: 13.5px; line-height: 1.5; color: #F0E6D2; margin: 0; max-width: none; }
+.mm-card__foot { display: flex; gap: 14px; margin-top: 9px; flex-wrap: wrap; }
+.mm-act { font-size: 10.5px; color: #5C584F; }
+.mm-act.is-gold { color: #C99A4E; }
+.mm-nav {
+  display: flex; justify-content: center; gap: 18px;
+  padding-top: 10px; border-top: 1px solid rgba(240, 230, 210, 0.07);
+}
+.mm-nav span { width: 16px; height: 3px; border-radius: 3px; background: rgba(240, 230, 210, 0.14); }
+.mm-nav span.is-on { background: #D4A857; }
+
+/* ── External-link indicator (MeetMe) ─────────────────────── */
+.is-external::after {
+  content: '\2197';
+  display: inline-block; font-size: 0.82em; line-height: 1;
+  opacity: 0.72;
+  transition: transform 0.25s var(--ease-out), opacity 0.25s ease;
+}
+a.is-external:not(.btn)::after { margin-left: 5px; }
+a.is-external:hover::after { transform: translate(2px, -2px); opacity: 1; }
 
 .join-teaser {
   display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--sp-8); align-items: center;
@@ -587,9 +678,6 @@ a:hover { color: var(--orange-bright); }
 }
 .hero:hover .hero__glow { opacity: 1; }
 
-/* 9. CTA decorative circle scroll rotation */
-.cta-band::after { transform: rotate(var(--cta-rot, 0deg)); transition: transform 0.1s linear; }
-
 /* 10. Parallax layers */
 .parallax-slow { will-change: transform; }
 
@@ -618,6 +706,7 @@ a:hover { color: var(--orange-bright); }
   .hero__grid { grid-template-columns: 1fr; gap: var(--sp-8); }
   .hero__media .photo-float { right: 12px; bottom: -20px; }
   .two-col, .join-teaser { grid-template-columns: 1fr; }
+  .meetme-band { grid-template-columns: 1fr; gap: var(--sp-8); padding: var(--sp-12) var(--sp-8); }
   .voices-grid { grid-template-columns: repeat(2, 1fr); }
   .story-card--featured { flex-direction: column; }
   .coverage-list { grid-template-columns: repeat(2, 1fr); }
@@ -640,7 +729,8 @@ a:hover { color: var(--orange-bright); }
   .team-grid { grid-template-columns: repeat(2, 1fr); gap: var(--sp-4); }
   .values-grid, .impact-grid, .form-grid-2 { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; gap: var(--sp-8); padding-block: var(--sp-12); }
-  .cta-band { padding: var(--sp-8) var(--sp-6); }
+  .meetme-band { padding: var(--sp-8) var(--sp-6); gap: var(--sp-6); }
+  .meetme-band__actions .btn { flex: 1 1 100%; }
   .team-modal__dialog { grid-template-columns: 1fr; padding-top: var(--sp-12); }
   .coverage-list { grid-template-columns: 1fr; }
 }
@@ -719,13 +809,6 @@ a:hover { color: var(--orange-bright); }
 [data-theme="light"] .photo-float {
   border-color: var(--bg);
   box-shadow: 0 16px 44px rgba(10, 26, 52, 0.28);
-}
-
-/* CTA button: stays brand-ink (dark) on the orange band → needs light text;
-   on hover it becomes the light surface, so the text flips back to ink */
-[data-theme="light"] .cta-band .btn--primary { color: var(--on-ink); }
-[data-theme="light"] .cta-band .btn--primary:hover {
-  background: var(--surface-2); border-color: var(--surface-2); color: var(--ink);
 }
 
 /* smooth theme cross-fade — added briefly by JS on toggle only

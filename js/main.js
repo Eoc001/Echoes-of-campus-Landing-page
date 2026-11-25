@@ -534,7 +534,7 @@ const STORIES = [];
   function initReveal() {
     const targets = $$([
       '.hero__grid > *', '.brand-strip p', '.section-head', '.page-hero > *',
-      '.two-col > *', '.cta-band', '.join-teaser', '.filter-bar',
+      '.two-col > *', '.meetme-band', '.join-teaser', '.filter-bar',
       '.story-card', '.team-card', '.coverage-item', '.values-grid li',
       '.impact-grid li', '.form-panel', '.empty-state', '.footer-top > *',
     ].join(', '))
@@ -675,7 +675,7 @@ const STORIES = [];
     /* 4. Image mask reveals — clip-path zeroes the image's own intersection
        rect, so watch each image's (unclipped) PARENT and toggle .is-in on
        the image itself when the parent enters the viewport. */
-    const images = $$('.two-col img, .join-teaser img, .cta-band ~ * img, .page-hero + * img')
+    const images = $$('.two-col img, .join-teaser img, .meetme-band ~ * img, .page-hero + * img')
     images.forEach((img, i) => {
       img.style.setProperty('--rd', (i % 4) * 120 + 'ms')
       img.classList.add('img-reveal')
@@ -748,8 +748,6 @@ const STORIES = [];
             el.style.transform = `translateY(${off.toFixed(1)}px)`
           }
         })
-        const cta = $('.cta-band')
-        if (cta) cta.style.setProperty('--cta-rot', (y * 0.05).toFixed(1) + 'deg')
       }
 
       lastY = y

@@ -213,7 +213,7 @@ a:hover { color: var(--orange-bright); }
    `.main-nav a:hover` (0-2-1) out-specifies `.btn--primary:hover` (0-2-0),
    which squashed the nav CTA and stole its hover colour. Scope overrides
    so the MeetMe button renders as a proper orange button. */
-.main-nav .nav-cta .btn { padding: 0 18px; border-bottom-width: 1px; }
+.main-nav .nav-cta .btn { padding: 0 22px; min-height: 50px; font-size: 16px; border-bottom-width: 1px; }
 .main-nav .nav-cta .btn:hover,
 .main-nav .nav-cta .btn:focus-visible {
   color: var(--ink); border-bottom-color: transparent;
@@ -467,20 +467,53 @@ a:hover { color: var(--orange-bright); }
   display: flex; align-items: center; gap: var(--sp-4);
   flex-wrap: wrap; margin-top: var(--sp-6);
 }
-.meetme-band__note { font-size: 13px; color: var(--text-faint); }
 
 /* Visual preview of the MeetMe interface — pure CSS, no image assets.
-   Colours are MeetMe's own tokens (near-black, ivory, gold) so the panel
-   reads as a genuine screenshot while the surrounding band stays EOC. */
+   Mirrors MeetMe's own theme pairing: dark-mode tokens while EOC is dark,
+   light-mode tokens while EOC is light, so the panel always reads as a
+   genuine screenshot of the app in the matching mode. */
 .meetme-band__preview { position: relative; z-index: 1; }
 .mm-shot {
-  background: #0C0C0E;
-  border: 1px solid rgba(240, 230, 210, 0.10);
+  /* MeetMe dark mode (EOC dark — the default) */
+  --mm-bg: #0C0C0E;
+  --mm-elev: #141417;
+  --mm-card: #17171B;
+  --mm-card-border: rgba(240, 230, 210, 0.07);
+  --mm-hairline: rgba(240, 230, 210, 0.07);
+  --mm-edge: rgba(240, 230, 210, 0.10);
+  --mm-ink: #F0E6D2;
+  --mm-who: #8A8578;
+  --mm-dim: #5C584F;
+  --mm-act: #5C584F;
+  --mm-gold: #C99A4E;
+  --mm-on-bg: rgba(212, 168, 87, 0.14);
+  --mm-dot: rgba(240, 230, 210, 0.14);
+  --mm-accent: #D4A857;
+
+  background: var(--mm-bg);
+  border: 1px solid var(--mm-edge);
   border-radius: 18px;
   padding: 16px 16px 12px;
   box-shadow: 0 30px 70px rgba(2, 6, 16, 0.55),
-              0 0 0 1px rgba(212, 168, 87, 0.16);   /* subtle MeetMe-gold ring */
+              0 0 0 1px rgba(212, 168, 87, 0.30);   /* MeetMe-gold ring */
   transform: rotate(-0.6deg);
+}
+/* MeetMe light mode when EOC is light */
+[data-theme="light"] .mm-shot {
+  --mm-bg: #D9A94A;
+  --mm-elev: #C8963A;
+  --mm-card: #F3E0AB;
+  --mm-card-border: rgba(60, 45, 15, 0.11);
+  --mm-hairline: rgba(40, 28, 4, 0.16);
+  --mm-edge: rgba(40, 28, 4, 0.16);
+  --mm-ink: #160F04;
+  --mm-who: #160F04;
+  --mm-dim: #5C4A22;
+  --mm-act: #3D3115;
+  --mm-gold: #3D2C08;
+  --mm-on-bg: rgba(212, 168, 87, 0.12);
+  --mm-dot: rgba(40, 28, 4, 0.22);
+  --mm-accent: #2E2208;
 }
 .mm-shot__top { display: flex; align-items: center; gap: 9px; margin-bottom: 13px; }
 .mm-logo {
@@ -494,40 +527,40 @@ a:hover { color: var(--orange-bright); }
 .mm-logo i:nth-child(4) { background: #C9962E; }
 .mm-word {
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: 15px; font-weight: 600; color: #F0E6D2; letter-spacing: 0.01em;
+  font-size: 15px; font-weight: 600; color: var(--mm-ink); letter-spacing: 0.01em;
 }
 .mm-pill {
   margin-left: auto; width: 24px; height: 24px; border-radius: 50%;
-  background: #141417; border: 1px solid rgba(240, 230, 210, 0.10);
+  background: var(--mm-elev); border: 1px solid var(--mm-edge);
 }
 .mm-switch {
-  display: flex; gap: 4px; background: #141417; border-radius: 12px;
+  display: flex; gap: 4px; background: var(--mm-elev); border-radius: 12px;
   padding: 4px; margin-bottom: 12px;
 }
 .mm-switch__opt {
   flex: 1; text-align: center; padding: 8px 0; border-radius: 9px;
   font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
-  color: #8A8578;
+  color: #8A8578;   /* MeetMe keeps this grey in both modes */
 }
-.mm-switch__opt.is-on { background: rgba(212, 168, 87, 0.14); color: #E8C878; }
+.mm-switch__opt.is-on { background: var(--mm-on-bg); color: #E8C878; }
 .mm-card {
-  background: #17171B; border: 1px solid rgba(240, 230, 210, 0.07);
+  background: var(--mm-card); border: 1px solid var(--mm-card-border);
   border-radius: 14px; padding: 13px 14px 11px; margin-bottom: 10px;
 }
 .mm-card--quiet { opacity: 0.6; }
 .mm-card__head { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 7px; }
-.mm-card__who { font-size: 11px; letter-spacing: 0.06em; color: #8A8578; font-weight: 500; }
-.mm-card__when { font-size: 10px; color: #5C584F; }
-.mm-card__body { font-size: 13.5px; line-height: 1.5; color: #F0E6D2; margin: 0; max-width: none; }
+.mm-card__who { font-size: 11px; letter-spacing: 0.06em; color: var(--mm-who); font-weight: 500; }
+.mm-card__when { font-size: 10px; color: var(--mm-dim); }
+.mm-card__body { font-size: 13.5px; line-height: 1.5; color: var(--mm-ink); margin: 0; max-width: none; }
 .mm-card__foot { display: flex; gap: 14px; margin-top: 9px; flex-wrap: wrap; }
-.mm-act { font-size: 10.5px; color: #5C584F; }
-.mm-act.is-gold { color: #C99A4E; }
+.mm-act { font-size: 10.5px; color: var(--mm-act); }
+.mm-act.is-gold { color: var(--mm-gold); }
 .mm-nav {
   display: flex; justify-content: center; gap: 18px;
-  padding-top: 10px; border-top: 1px solid rgba(240, 230, 210, 0.07);
+  padding-top: 10px; border-top: 1px solid var(--mm-hairline);
 }
-.mm-nav span { width: 16px; height: 3px; border-radius: 3px; background: rgba(240, 230, 210, 0.14); }
-.mm-nav span.is-on { background: #D4A857; }
+.mm-nav span { width: 16px; height: 3px; border-radius: 3px; background: var(--mm-dot); }
+.mm-nav span.is-on { background: var(--mm-accent); }
 
 /* ── External-link indicator (MeetMe) ─────────────────────── */
 .is-external::after {

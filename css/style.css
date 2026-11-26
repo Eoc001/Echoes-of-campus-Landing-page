@@ -282,6 +282,8 @@ a:hover { color: var(--orange-bright); }
   font-size: 14px; color: var(--text-faint);
   display: flex; justify-content: space-between; gap: var(--sp-4); flex-wrap: wrap;
 }
+.footer-legal { display: inline-flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; }
+.footer-legal span { color: var(--text-faint); }
 
 /* ── 5. Components ─────────────────────────────────────────── */
 .story-card {
@@ -608,6 +610,47 @@ a.is-external:hover::after { transform: translate(2px, -2px); opacity: 1; }
 .privacy-note { font-size: 13px; color: var(--text-dim); background: rgba(242, 198, 165, 0.1); border: 1px solid var(--line); border-left: 4px solid var(--orange); border-radius: var(--radius-s); padding: var(--sp-4); }
 .privacy-note strong { color: var(--orange-bright); }
 
+/* ── Legal pages ───────────────────────────────────────────── */
+.legal { max-width: 860px; margin-inline: auto; }
+.legal-meta {
+  background: var(--surface); border: 1px solid var(--line);
+  border-left: 4px solid var(--orange); border-radius: var(--radius-m);
+  padding: var(--sp-6); margin-bottom: var(--sp-12);
+}
+.legal-meta__brand { margin: 0 0 var(--sp-4); font-size: 18px; color: var(--cream); }
+.legal-meta dl { display: grid; gap: var(--sp-2); margin: 0; }
+.legal-meta dl div { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: var(--sp-4); }
+.legal-meta dt { color: var(--peach); font-weight: 600; }
+.legal-meta dd { margin: 0; color: var(--text-dim); overflow-wrap: anywhere; }
+.legal-meta a { color: var(--orange-bright); }
+.legal h2 {
+  font-size: clamp(24px, 3vw, 34px);
+  margin: var(--sp-12) 0 var(--sp-4);
+  padding-top: var(--sp-6);
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 96px;
+}
+.legal-meta + h2 { margin-top: 0; padding-top: 0; border-top: 0; }
+.legal h3 { font-size: 19px; margin: var(--sp-8) 0 var(--sp-3); color: var(--orange-bright); }
+.legal p { color: var(--text-dim); }
+.legal strong { color: var(--cream); }
+.legal ul, .legal ol { margin: 0 0 var(--sp-6); padding-left: 1.4em; }
+.legal li { color: var(--text-dim); margin-bottom: var(--sp-2); max-width: 66ch; }
+.legal li::marker { color: var(--orange); }
+.legal a { color: var(--orange-bright); }
+.legal a:hover { color: var(--orange); }
+.legal code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em; background: var(--surface-2);
+  border: 1px solid var(--line); border-radius: 4px; padding: 1px 6px;
+}
+.legal hr { border: 0; border-top: 1px solid var(--line); margin: var(--sp-12) 0; }
+.legal p.legal-note { font-size: 15px; color: var(--text-dim); }
+@media (max-width: 639px) {
+  .legal-meta { padding: var(--sp-4); }
+  .legal-meta dl div { grid-template-columns: 1fr; gap: 2px; }
+}
+
 /* ── 7. Animations ───────────────────────────────────────── */
 @keyframes modal-in {
   from { opacity: 0; transform: scale(0.97); }
@@ -833,6 +876,11 @@ a.is-external:hover::after { transform: translate(2px, -2px); opacity: 1; }
 [data-theme="light"] .scroll-top { background: rgba(255, 255, 255, 0.88); }
 [data-theme="light"] .scroll-progress { background: rgba(10, 26, 52, 0.08); }
 [data-theme="light"] .field select { color-scheme: light; }
+
+/* footer small print: raise light-theme contrast to WCAG AA */
+[data-theme="light"] .footer-note,
+[data-theme="light"] .social-soon,
+[data-theme="light"] .footer-bottom { color: var(--text-dim); }
 
 /* hero: drop the navy radial, keep warm orange glows */
 [data-theme="light"] .hero {

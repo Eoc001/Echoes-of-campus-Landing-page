@@ -1,5 +1,5 @@
 # Echoes of Campus — robots.txt
-# https://eoc001.github.io/Echoes-of-campus-Landing-page/
+# https://echoesofcampus.vercel.app/
 
 User-agent: *
 Allow: /
@@ -28,4 +28,4 @@ Allow: /
 User-agent: GPTBot
 Allow: /
 
-Sitemap: https://eoc001.github.io/Echoes-of-campus-Landing-page/sitemap.xml
+Sitemap: https://echoesofcampus.vercel.app/sitemap.xml

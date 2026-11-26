@@ -1,6 +1,6 @@
 # Echoes of Campus — Website
 
-A complete, responsive, four-page public website for **Echoes of Campus**, an independent
+A complete, responsive public website for **Echoes of Campus**, an independent
 student-focused media initiative at the University of Ilorin.
 
 **Design:** dark ink-blue (#0A1A34) is the default theme, with Campus Orange (#F16610)
@@ -17,17 +17,22 @@ GitHub Pages, cPanel, etc.).
 
 ## Pages
 
-| File                  | Page                              |
-|-----------------------|-----------------------------------|
-| `index.html`          | Home                              |
-| `about.html`          | About (incl. Meet the Team, Join the Team, Our Impact) |
-| `campus-voices.html`  | Campus Voices (editorial showcase) |
-| `contact.html`        | Contact / Share Your Voice        |
+| File                       | Page                                  |
+|----------------------------|---------------------------------------|
+| `index.html`               | Home                                  |
+| `about.html`               | About (incl. Meet the Team, Join the Team, Our Impact) |
+| `campus-voices.html`       | Campus Voices (editorial showcase)    |
+| `contact.html`             | Contact / Share Your Voice            |
+| `privacy.html`             | Privacy Policy                        |
+| `terms.html`               | Terms of Use                          |
+| `contact-privacy.html`     | Contact Form Privacy Notice           |
+| `volunteer-privacy.html`   | Volunteer Application Privacy Notice  |
 
 ## Folder structure
 
 ```
 ├── index.html / about.html / campus-voices.html / contact.html
+├── privacy.html / terms.html / contact-privacy.html / volunteer-privacy.html
 ├── css/
 │   └── style.css           # tokens, components, pages, responsive rules
 ├── js/
@@ -135,5 +140,6 @@ or re-create the official logo; drop the real files into `assets/logo/` when sup
 - Accessibility: semantic landmarks, skip link, visible focus rings, keyboard-accessible
   menu/modal/filters, `prefers-reduced-motion` support, 44px+ touch targets.
 - Tested breakpoints: 360, 390, 768, 1024, 1280, 1440px.
-- Delete `privacy.html`-reference concerns: the contact page carries a plain-language
-  privacy statement plus a slot for a future formal notice.
+- Legal pages: `privacy.html`, `terms.html`, `contact-privacy.html` and
+  `volunteer-privacy.html`. The contact and volunteer forms link to their respective
+  notices, and every page's footer links to the Privacy Policy and Terms of Use.

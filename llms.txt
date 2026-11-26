@@ -13,10 +13,14 @@ client-side tracking beyond Google Tag Manager.
 
 ## Pages
 
-- [Home](https://eoc001.github.io/Echoes-of-campus-Landing-page/): Mission statement, featured content, and how to get involved.
-- [Campus Voices](https://eoc001.github.io/Echoes-of-campus-Landing-page/campus-voices.html): The story library — student interviews, street interviews, opinions and personal stories.
-- [About](https://eoc001.github.io/Echoes-of-campus-Landing-page/about.html): Who runs Echoes of Campus, the team, the mission, and how to join as a volunteer.
-- [Contact / Share Your Voice](https://eoc001.github.io/Echoes-of-campus-Landing-page/contact.html): Suggest a topic, share a story, raise a concern, request an interview, or ask a question.
+- [Home](https://echoesofcampus.vercel.app/): Mission statement, featured content, and how to get involved.
+- [Campus Voices](https://echoesofcampus.vercel.app/campus-voices.html): The story library — student interviews, street interviews, opinions and personal stories.
+- [About](https://echoesofcampus.vercel.app/about.html): Who runs Echoes of Campus, the team, the mission, and how to join as a volunteer.
+- [Contact / Share Your Voice](https://echoesofcampus.vercel.app/contact.html): Suggest a topic, share a story, raise a concern, request an interview, or ask a question.
+- [Privacy Policy](https://echoesofcampus.vercel.app/privacy.html): How Echoes of Campus collects, uses, stores and protects personal data, and the rights available under the Nigeria Data Protection Act 2023.
+- [Terms of Use](https://echoesofcampus.vercel.app/terms.html): The terms governing use of the Echoes of Campus website, including acceptable use, submissions, intellectual property and liability.
+- [Contact Form Privacy Notice](https://echoesofcampus.vercel.app/contact-privacy.html): How Echoes of Campus handles personal information submitted through the Contact form, including anonymous submissions and your data protection rights.
+- [Volunteer Application Privacy Notice](https://echoesofcampus.vercel.app/volunteer-privacy.html): How Echoes of Campus collects and uses personal information submitted through its Volunteer Application form and related registration activities.
 
 ## Organization
 

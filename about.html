@@ -143,12 +143,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <section class="section" style="padding-top:0" id="meet-the-team" aria-labelledby="team-title">
+  <section class="section team-section" style="padding-top:0" id="meet-the-team" aria-labelledby="team-title">
     <div class="container">
-      <p class="eyebrow">Meet the Team</p>
-      <h2 class="section-title" id="team-title">The people behind the mic.</h2>
-      <p class="section-intro">Sixteen ID cards, sixteen roles, one shared obsession with campus stories. Tap any card to view it in full.</p>
-      <ul class="team-grid" id="team-grid"></ul>
+      <div class="team-heading">
+        <p class="eyebrow eyebrow--pill">Meet the Team</p>
+        <h2 class="section-title" id="team-title">The people behind the mic.</h2>
+      </div>
+
+      <div class="team-showcase" id="team-showcase" role="group" aria-roledescription="carousel" aria-label="Team ID cards" tabindex="0">
+        <div class="team-showcase__panel">
+          <div class="team-showcase__texture" aria-hidden="true"></div>
+          <div class="team-showcase__filters" id="team-filters" aria-label="Filter by team"></div>
+          <div class="team-showcase__stage" aria-live="polite">
+            <button type="button" class="team-showcase__portrait" id="team-showcase-portrait" aria-haspopup="dialog" aria-label="View ID card in full">
+              <img id="team-showcase-img" src="assets/team/placeholder-id-card.svg" alt="" width="600" height="840">
+            </button>
+            <div class="team-showcase__copy">
+              <p class="team-showcase__quote" id="team-showcase-quote"></p>
+              <div class="team-showcase__person">
+                <h3 id="team-showcase-name"></h3>
+                <p class="team-showcase__role" id="team-showcase-role"></p>
+                <p class="team-showcase__bio" id="team-showcase-bio"></p>
+              </div>
+            </div>
+          </div>
+          <div class="team-showcase__nav">
+            <span class="team-showcase__count" id="team-count"></span>
+            <button type="button" class="team-showcase__nav-btn" id="team-prev" aria-label="Previous team member">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <button type="button" class="team-showcase__nav-btn" id="team-next" aria-label="Next team member">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 

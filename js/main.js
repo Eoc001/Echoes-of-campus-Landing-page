@@ -297,83 +297,137 @@ const STORIES = [];
 
   /* ── Team grid + accessible modal ────────────────────────── */
   function initTeam() {
-    const grid = $('#team-grid')
-    if (!grid || !TEAM_MEMBERS) return
+    const panel = $('#team-showcase')
+    if (!panel || !TEAM_MEMBERS) return
 
-    grid.innerHTML = TEAM_MEMBERS.map((m, idx) => {
+    const img = $('#team-showcase-img')
+    const quoteEl = $('#team-showcase-quote')
+    const nameEl = $('#team-showcase-name')
+    const roleEl = $('#team-showcase-role')
+    const bioEl = $('#team-showcase-bio')
+    const portrait = $('#team-showcase-portrait')
+    const filtersEl = $('#team-filters')
+    const countEl = $('#team-count')
+    const prev = $('#team-prev')
+    const next = $('#team-next')
+    const QUOTE = '\u201cEveryone has a story. Every Story deserves to be heard.\u201d'
+
+    /* filter pills mirror the ambassador section's country/campus pills */
+    const groups = [
+      { label: 'All members', match: null },
+      { label: 'Technical', match: /^Technical Lead$/ },
+      { label: 'Field Ops', match: /^Field Operations$/ },
+      { label: 'Content', match: /^Content & Storytelling$/ },
+      { label: 'Brand', match: /^Creative and Brand Team$/ },
+      { label: 'Production', match: /^Production Team$/ },
+    ]
+    let groupIdx = 0
+    let active = Math.max(0, TEAM_MEMBERS.findIndex((m) => !m.placeholder))
+
+    function visible() {
+      const match = groups[groupIdx].match
+      return TEAM_MEMBERS.map((m, idx) => ({ m, idx }))
+        .filter(({ m }) => !match || match.test(m.role))
+    }
+
+    function render() {
+      const list = visible()
+      if (!list.length) return
+      if (active >= list.length) active = 0
+      if (active < 0) active = list.length - 1
+      const { m, idx } = list[active]
       const name = m.placeholder ? `Team member ${String(idx + 1).padStart(2, '0')}` : m.name
-      const role = m.placeholder ? 'ID card to be added' : m.role
-      const tags = m.placeholder
-        ? '<span class="team-tag team-tag--pending">Awaiting member data</span>'
-        : m.departments.map((d) => `<span class="team-tag">${d}</span>`).join('')
-      return `
-      <li class="team-card${m.placeholder ? ' team-card--placeholder' : ''}">
-        <button type="button" class="team-card__button" data-member="${idx}"
-                aria-haspopup="dialog" aria-label="View ID card for ${name}">
-          <img src="${m.image}" alt="Echoes of Campus ID card for ${name}"
-               loading="lazy" width="600" height="840">
-        </button>
-        <div class="team-card__meta">
-          <h3>${name}</h3>
-          <p class="team-card__role">${role}</p>
-          <div class="team-card__tags">${tags}</div>
-        </div>
-      </li>`
-    }).join('')
 
-    /* modal */
-    const modal = $('#team-modal')
-    if (!modal) return
-    const dialog = $('.team-modal__dialog', modal)
-    const img = $('#team-modal-img')
-    const nameEl = $('#team-modal-name')
-    const roleEl = $('#team-modal-role')
-    const tagsEl = $('#team-modal-tags')
-    const bioEl = $('#team-modal-bio')
-    const closeBtn = $('#team-modal-close')
-    let lastFocus = null
-
-    function openModal(idx) {
-      const m = TEAM_MEMBERS[idx]
-      const real = !m.placeholder
-      const name = real ? m.name : `Team member ${String(idx + 1).padStart(2, '0')}`
       img.src = m.image
       img.alt = `Echoes of Campus ID card for ${name}`
+      quoteEl.textContent = QUOTE
       nameEl.textContent = name
-      roleEl.textContent = real ? m.role : 'ID card to be added'
-      tagsEl.innerHTML = real
-        ? m.departments.map((d) => `<span class="team-tag">${d}</span>`).join('')
-        : '<span class="team-tag team-tag--pending">Awaiting member data</span>'
-      bioEl.textContent = real && m.bio ? m.bio
-        : 'This member\u2019s details are being added. Replace the placeholder card and fill in their data in Part 2 of this file (TEAM_MEMBERS).'
-      lastFocus = document.activeElement
-      modal.hidden = false
-      document.body.classList.add('modal-open')
-      closeBtn.focus()
-    }
-    function closeModal() {
-      modal.hidden = true
-      document.body.classList.remove('modal-open')
-      if (lastFocus) lastFocus.focus()
+      roleEl.textContent = m.placeholder ? 'ID card to be added' : m.role
+      bioEl.textContent = m.placeholder ? 'This member\u2019s details are being added.' : (m.bio || '')
+      countEl.textContent = `${String(active + 1).padStart(2, '0')} / ${String(list.length).padStart(2, '0')}`
+      portrait.dataset.member = String(idx)
+      portrait.setAttribute('aria-label', `View ID card for ${name}`)
     }
 
-    grid.addEventListener('click', (e) => {
-      const btn = e.target.closest('.team-card__button')
-      if (btn) openModal(Number(btn.dataset.member))
+    function step(dir) {
+      const list = visible()
+      if (list.length < 2) return
+      active = (active + dir + list.length) % list.length
+      render()
+    }
+
+    filtersEl.innerHTML = groups.map((g, i) =>
+      `<button type="button" class="team-filter" data-group="${i}" aria-pressed="${i === groupIdx}">${g.label}</button>`
+    ).join('')
+    filtersEl.addEventListener('click', (e) => {
+      const btn = e.target.closest('.team-filter')
+      if (!btn) return
+      groupIdx = Number(btn.dataset.group)
+      active = 0
+      filtersEl.querySelectorAll('.team-filter').forEach((el) => {
+        el.setAttribute('aria-pressed', String(el === btn))
+      })
+      render()
     })
-    closeBtn.addEventListener('click', closeModal)
-    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal() })
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !modal.hidden) closeModal()
-      if (e.key === 'Tab' && !modal.hidden) {
-        /* simple focus trap inside the dialog */
-        const focusables = $$('button, [href]', dialog)
-        if (!focusables.length) return
-        const first = focusables[0], last = focusables[focusables.length - 1]
-        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus() }
-        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus() }
+    prev.addEventListener('click', () => step(-1))
+    next.addEventListener('click', () => step(1))
+    panel.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1) }
+      if (e.key === 'ArrowRight') { e.preventDefault(); step(1) }
+    })
+
+    /* full-card modal, now opened from the showcase portrait */
+    const modal = $('#team-modal')
+    if (modal) {
+      const dialog = $('.team-modal__dialog', modal)
+      const modalImg = $('#team-modal-img')
+      const modalName = $('#team-modal-name')
+      const modalRole = $('#team-modal-role')
+      const tagsEl = $('#team-modal-tags')
+      const modalBio = $('#team-modal-bio')
+      const closeBtn = $('#team-modal-close')
+      let lastFocus = null
+
+      function openModal(idx) {
+        const m = TEAM_MEMBERS[idx]
+        const real = !m.placeholder
+        const name = real ? m.name : `Team member ${String(idx + 1).padStart(2, '0')}`
+        modalImg.src = m.image
+        modalImg.alt = `Echoes of Campus ID card for ${name}`
+        modalName.textContent = name
+        modalRole.textContent = real ? m.role : 'ID card to be added'
+        tagsEl.innerHTML = real
+          ? m.departments.map((d) => `<span class="team-tag">${d}</span>`).join('')
+          : '<span class="team-tag team-tag--pending">Awaiting member data</span>'
+        modalBio.textContent = real && m.bio ? m.bio
+          : 'This member\u2019s details are being added. Replace the placeholder card and fill in their data in Part 2 of this file (TEAM_MEMBERS).'
+        lastFocus = document.activeElement
+        modal.hidden = false
+        document.body.classList.add('modal-open')
+        closeBtn.focus()
       }
-    })
+      function closeModal() {
+        modal.hidden = true
+        document.body.classList.remove('modal-open')
+        if (lastFocus) lastFocus.focus()
+      }
+
+      portrait.addEventListener('click', () => openModal(Number(portrait.dataset.member)))
+      closeBtn.addEventListener('click', closeModal)
+      modal.addEventListener('click', (e) => { if (e.target === modal) closeModal() })
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.hidden) closeModal()
+        if (e.key === 'Tab' && !modal.hidden) {
+          const focusables = $$('button, [href]', dialog)
+          if (!focusables.length) return
+          const first = focusables[0], last = focusables[focusables.length - 1]
+          if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus() }
+          else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus() }
+        }
+      })
+    }
+
+    render()
   }
 
   /* ── Campus Voices: filters + grid ───────────────────────── */
@@ -535,7 +589,7 @@ const STORIES = [];
     const targets = $$([
       '.hero__grid > *', '.brand-strip p', '.section-head', '.page-hero > *',
       '.two-col > *', '.meetme-band', '.join-teaser', '.filter-bar',
-      '.story-card', '.team-card', '.coverage-item', '.values-grid li',
+      '.story-card', '.team-showcase', '.coverage-item', '.values-grid li',
       '.impact-grid li', '.form-panel', '.empty-state', '.footer-top > *',
     ].join(', '))
     if (!targets.length) return

@@ -54,8 +54,8 @@ function formIsConfigured(endpoint) {
 
 /* ─────────────────────────────────────────────────────────────
    TEAM DATA — one entry per member.
-   ⚠️  The 16 ID-card image files were NOT supplied with this build.
-      1. Export each card as a PUBLIC-SAFE WebP (no private QR/barcode/ID data).
+   ⚠️  Most of the 16 ID-card image files were NOT supplied with this build.
+      1. Export each card as a PUBLIC-SAFE image (no private QR/barcode/ID data).
       2. Save them in assets/team/ as team-01.png … team-16.png
       3. Fill in name, role, departments and bio below. Do NOT guess — ask the team.
    `departments` supports MULTIPLE departments per person.
@@ -77,12 +77,12 @@ const TEAM_MEMBERS = [
   },
   {
     id: 'member-02',
-    image: ID_CARD_PLACEHOLDER, // → assets/team/team-02.webp
-    name: '',
-    role: '',
+    image: 'assets/team/team-02.png',
+    name: 'Oyeyiola Meshach Olushola',
+    role: 'Technical Lead',
     departments: [],
-    bio: '',
-    placeholder: true, // ← replace with real name, role & departments
+    bio: 'Also known as Brave_media.',
+    placeholder: false,
   },
   {
     id: 'member-03',
@@ -298,7 +298,7 @@ const STORIES = [];
   /* ── Team grid + accessible modal ────────────────────────── */
   function initTeam() {
     const grid = $('#team-grid')
-    if (!grid || !window.TEAM_MEMBERS) return
+    if (!grid || !TEAM_MEMBERS) return
 
     grid.innerHTML = TEAM_MEMBERS.map((m, idx) => {
       const name = m.placeholder ? `Team member ${String(idx + 1).padStart(2, '0')}` : m.name

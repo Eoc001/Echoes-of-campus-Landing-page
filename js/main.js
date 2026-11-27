@@ -95,21 +95,21 @@ const TEAM_MEMBERS = [
   },
   {
     id: 'member-04',
-    image: ID_CARD_PLACEHOLDER, // → assets/team/team-04.webp
-    name: '',
-    role: '',
+    image: 'assets/team/team-04.png',
+    name: 'Abdulrozaq Abdulqowiyy',
+    role: 'Field Operations',
     departments: [],
-    bio: '',
-    placeholder: true, // ← replace with real name, role & departments
+    bio: 'Also known as AOA.',
+    placeholder: false,
   },
   {
     id: 'member-05',
-    image: ID_CARD_PLACEHOLDER, // → assets/team/team-05.webp
-    name: '',
-    role: '',
+    image: 'assets/team/team-05.png',
+    name: 'Oluwafikunayomi Olatunji',
+    role: 'Field Operations',
     departments: [],
-    bio: '',
-    placeholder: true, // ← replace with real name, role & departments
+    bio: 'Also known as Fikun.',
+    placeholder: false,
   },
   {
     id: 'member-06',
@@ -122,12 +122,12 @@ const TEAM_MEMBERS = [
   },
   {
     id: 'member-07',
-    image: ID_CARD_PLACEHOLDER, // → assets/team/team-07.webp
-    name: '',
-    role: '',
+    image: 'assets/team/team-07.png',
+    name: 'Adesina Favour Ololade',
+    role: 'Field Operations',
     departments: [],
-    bio: '',
-    placeholder: true, // ← replace with real name, role & departments
+    bio: 'Also known as Thefavouritize.',
+    placeholder: false,
   },
   {
     id: 'member-08',
@@ -140,21 +140,21 @@ const TEAM_MEMBERS = [
   },
   {
     id: 'member-09',
-    image: ID_CARD_PLACEHOLDER, // → assets/team/team-09.webp
-    name: '',
-    role: '',
+    image: 'assets/team/team-09.png',
+    name: 'Balogun Summayah Oluwatofunmi',
+    role: 'Content & Storytelling',
     departments: [],
-    bio: '',
-    placeholder: true, // ← replace with real name, role & departments
+    bio: 'Also known as Mayath3ladyyy.',
+    placeholder: false,
   },
   {
     id: 'member-10',
-    image: ID_CARD_PLACEHOLDER, // → assets/team/team-10.webp
-    name: '',
-    role: '',
+    image: 'assets/team/team-10.png',
+    name: 'Felix Sabi',
+    role: 'Creative and Brand Team',
     departments: [],
-    bio: '',
-    placeholder: true, // ← replace with real name, role & departments
+    bio: 'Also known as Happy.',
+    placeholder: false,
   },
   {
     id: 'member-11',
@@ -167,39 +167,39 @@ const TEAM_MEMBERS = [
   },
   {
     id: 'member-12',
-    image: ID_CARD_PLACEHOLDER, // → assets/team/team-12.webp
-    name: '',
-    role: '',
+    image: 'assets/team/team-12.png',
+    name: 'Ahmed Abdulbasit Opeyemi',
+    role: 'Creative and Brand Team',
     departments: [],
-    bio: '',
-    placeholder: true, // ← replace with real name, role & departments
+    bio: 'Also known as Bash graphics.',
+    placeholder: false,
   },
   {
     id: 'member-13',
-    image: ID_CARD_PLACEHOLDER, // → assets/team/team-13.webp
-    name: '',
-    role: '',
+    image: 'assets/team/team-13.png',
+    name: 'Abdulrasheed Ayobami Ishola',
+    role: 'Production Team',
     departments: [],
-    bio: '',
-    placeholder: true, // ← replace with real name, role & departments
+    bio: 'Also known as JIGGY.',
+    placeholder: false,
   },
   {
     id: 'member-14',
-    image: ID_CARD_PLACEHOLDER, // → assets/team/team-14.webp
-    name: '',
-    role: '',
+    image: 'assets/team/team-14.png',
+    name: 'Oluwadamilare Bejide',
+    role: 'Production Team',
     departments: [],
-    bio: '',
-    placeholder: true, // ← replace with real name, role & departments
+    bio: 'Also known as Lare.',
+    placeholder: false,
   },
   {
     id: 'member-15',
-    image: ID_CARD_PLACEHOLDER, // → assets/team/team-15.webp
-    name: '',
-    role: '',
+    image: 'assets/team/team-15.png',
+    name: 'Kolawole Olatayo',
+    role: 'Production Team',
     departments: [],
-    bio: '',
-    placeholder: true, // ← replace with real name, role & departments
+    bio: 'Also known as Pauloskimedia.',
+    placeholder: false,
   },
   {
     id: 'member-16',
